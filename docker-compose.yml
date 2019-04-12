@@ -6,12 +6,14 @@ volumes:
 services:
   db:
     image: mongo:3.2
+    restart: always
     entrypoint: mongod --smallfiles
     volumes:
       - data:/data/db
 
   rocketchat:
     image: rocket.chat:latest
+    restart: always
     environment:
       ROOT_URL: 'http://localhost'
     ports:
